@@ -23,10 +23,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(methodOverride('_method'));
 
-app.set("views", "./views");
+app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
 
-app.use(express.static("public"));
+app.use(express.static(`${__dirname}/public`));
 // flash
 app.use(cookieParser('ABCD'));
 app.use(session({ cookie: { maxAge: 60000 }}));
@@ -42,8 +42,3 @@ routesAdmin(app);
 app.listen(port, () =>{
     console.log(`app listening on port ${port}`);
 });
-
-console.log("abs");
-console.log("abd");
-console.log("abg");
-console.log("abs");
